@@ -1,0 +1,264 @@
+/* Body setup with default font and color */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+    font-weight: 400;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Container Flex Setup */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Enhanced multi-layered gradient background */
+.main-section {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+    background: linear-gradient(135deg, rgba(142, 68, 173, 0.9) 20%, rgba(52, 152, 219, 0.8) 50%, rgba(141, 50, 136, 0.966) 90%); /* Adjusted colors */
+    background-size: 200% 200%; /* Animation size for smooth effect */
+    animation: gradientMovement 10s ease infinite; /* Smooth movement of gradient */
+    position: relative;
+    z-index: 1;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(221, 6, 192, 0.15);
+    overflow: hidden; /* Hide overflow for floating shapes */
+}
+
+/* Floating shapes (abstract shapes for dynamic feel) */
+.main-section::before,
+.main-section::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: floating 15s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.main-section::before {
+    width: 400px;
+    height: 400px;
+    top: 10%;
+    left: -15%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+}
+
+.main-section::after {
+    width: 300px;
+    height: 300px;
+    bottom: -10%;
+    right: -10%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    animation-duration: 20s;
+}
+
+/* Gradient animation keyframes */
+@keyframes gradientMovement {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating animation for abstract shapes */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(30px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Applying Glassmorphism on text sections */
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 40px;
+    text-align: left;
+    backdrop-filter: blur(10px); /* Glass-like blur effect */
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    border-radius: 16px;
+    padding: 40px;
+    z-index: 2; /* Ensuring text appears over the background */
+}
+
+.left-section h1 {
+    font-size: 54px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff; /* Keep the text white for contrast */
+}
+
+.left-section h1 .highlight {
+    color: #ffcc00; /* Gold highlight */
+}
+
+.left-section .subtext {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+/* Professional input and form design */
+.input-form {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.input-form input {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-right: 15px;
+    font-size: 18px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-form input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.input-form button {
+    padding: 15px 30px;
+    background-color: #3498db; /* Changed from pink to blue */
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-form button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.5);
+}
+
+/* Right section styling */
+.right-section {
+    flex: 1;
+    padding-left: 40px;
+    overflow-y: auto;
+    z-index: 2; /* Ensures the gallery stays above background elements */
+}
+
+/* Gallery heading */
+.gallery-heading {
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+/* Grid gallery */
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .main-section {
+        flex-direction: column;
+    }
+
+    .grid-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            HOME
+////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.btn-Home {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 28px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 -2px 4px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.btn-Home:hover {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.15));
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 -3px 6px rgba(255, 255, 255, 0.8);
+    transform: translateY(-5px);
+}
+
+.btn-Home:active {
+    transform: translateY(2px);
+    box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.3), inset -2px -2px 6px rgba(255, 255, 255, 0.9);
+}
+
+.btn-Home .icon {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-Home .fa-home {
+    font-size: 24px;
+}
+
+.btn-Home:hover .fa-home {
+    color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .btn-Home {
+        top: 15px;
+        right: 15px;
+        padding: 10px 22px;
+        font-size: 16px;
+    }
+
+    .btn-Home .fa-home {
+        font-size: 22px;
+    }
+}
+
