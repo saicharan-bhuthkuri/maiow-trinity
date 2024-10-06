@@ -5,6 +5,6 @@ document.getElementById('design-form').addEventListener('submit', function(event
     if (designIdea) {
         alert('Generating web design for: ' + designIdea);
     } else {
-        alert('Please enter a web design idea.');
+        alert('Please enter your word to detect.');
     }
 });
