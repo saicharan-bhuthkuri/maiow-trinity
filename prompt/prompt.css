@@ -24,17 +24,17 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 60px;
-    background: linear-gradient(135deg, rgba(142, 68, 173, 0.9) 20%, rgba(52, 152, 219, 0.8) 50%, rgba(141, 50, 136, 0.966) 90%); /* Adjusted colors */
-    background-size: 200% 200%; /* Animation size for smooth effect */
-    animation: gradientMovement 10s ease infinite; /* Smooth movement of gradient */
+    background: linear-gradient(135deg, rgba(142, 68, 173, 0.9) 20%, rgba(52, 152, 219, 0.8) 50%, rgba(141, 50, 136, 0.966) 90%);
+    background-size: 200% 200%;
+    animation: gradientMovement 10s ease infinite;
     position: relative;
     z-index: 1;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(221, 6, 192, 0.15);
-    overflow: hidden; /* Hide overflow for floating shapes */
+    overflow: hidden;
 }
 
-/* Floating shapes (abstract shapes for dynamic feel) */
+/* Floating shapes */
 .main-section::before,
 .main-section::after {
     content: '';
@@ -70,37 +70,36 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Floating animation for abstract shapes */
+/* Floating animation */
 @keyframes floating {
     0% { transform: translateY(0px); }
     50% { transform: translateY(30px); }
     100% { transform: translateY(0px); }
 }
 
-/* Applying Glassmorphism on text sections */
+/* Glassmorphism on text sections */
 .left-section {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 40px;
+    padding: 40px 40px 40px 0; /* Right padding */
     text-align: left;
-    backdrop-filter: blur(10px); /* Glass-like blur effect */
-    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    padding: 40px;
-    z-index: 2; /* Ensuring text appears over the background */
+    z-index: 2;
 }
 
 .left-section h1 {
     font-size: 54px;
     font-weight: 700;
     margin-bottom: 15px;
-    color: #fff; /* Keep the text white for contrast */
+    color: #fff;
 }
 
 .left-section h1 .highlight {
-    color: #ffcc00; /* Gold highlight */
+    color: #ffcc00;
 }
 
 .left-section .subtext {
@@ -111,7 +110,7 @@ body {
     line-height: 1.6;
 }
 
-/* Professional input and form design */
+/* Input and form design */
 .input-form {
     display: flex;
     align-items: center;
@@ -137,7 +136,7 @@ body {
 
 .input-form button {
     padding: 15px 30px;
-    background-color: #3498db; /* Changed from pink to blue */
+    background-color: #3498db;
     border: none;
     border-radius: 6px;
     color: #fff;
@@ -149,7 +148,7 @@ body {
 }
 
 .input-form button:hover {
-    background-color: #2980b9; /* Darker blue on hover */
+    background-color: #2980b9;
     box-shadow: 0 6px 15px rgba(52, 152, 219, 0.5);
 }
 
@@ -158,7 +157,7 @@ body {
     flex: 1;
     padding-left: 40px;
     overflow-y: auto;
-    z-index: 2; /* Ensures the gallery stays above background elements */
+    z-index: 2;
 }
 
 /* Gallery heading */
@@ -189,19 +188,99 @@ body {
 }
 
 /* Mobile responsiveness */
+@media (max-width: 1024px) {
+    .main-section {
+        padding: 40px; /* Reduce padding */
+    }
+
+    .left-section {
+        padding: 30px; /* Reduce padding */
+    }
+
+    .right-section {
+        padding-left: 30px; /* Reduce padding */
+    }
+
+    .gallery-heading {
+        font-size: 28px; /* Reduce heading size */
+    }
+}
+
 @media (max-width: 768px) {
     .main-section {
         flex-direction: column;
+        padding: 20px; /* Further reduce padding */
+    }
+
+    .left-section {
+        padding: 20px; /* Equal padding for left section */
+    }
+
+    .right-section {
+        padding-left: 20px; /* Equal padding for right section */
     }
 
     .grid-gallery {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
+    }
+
+    .input-form {
+        flex-direction: column; /* Stack input and button */
+    }
+
+    .input-form input {
+        margin-right: 0; /* Reset margin */
+        margin-bottom: 10px; /* Add spacing */
+    }
+
+    .btn-Home {
+        top: 15px;
+        right: 15px;
+        padding: 10px 22px;
+        font-size: 16px;
+    }
+
+    .btn-Home .fa-home {
+        font-size: 22px;
+    }
+
+    .gallery-heading {
+        font-size: 24px; /* Reduce further for small screens */
+    }
+
+    .grid-gallery {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
     }
 }
-/*/////////////////////////////////////////////////////////////////////////////////////////////////////////
-                            HOME
-////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
+@media (max-width: 480px) {
+    .left-section h1 {
+        font-size: 36px; /* Smaller heading */
+    }
+
+    .left-section .subtext {
+        font-size: 18px; /* Smaller subtext */
+    }
+
+    .gallery-heading {
+        font-size: 20px; /* Further reduce font size */
+    }
+
+    .grid-gallery {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+
+    .btn-Home {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .btn-Home .fa-home {
+        font-size: 20px;
+    }
+}
+
+/* Button Home */
 .btn-Home {
     position: fixed;
     top: 20px;
@@ -248,17 +327,3 @@ body {
     color: rgba(255, 255, 255, 0.9);
     transform: scale(1.1);
 }
-
-@media (max-width: 768px) {
-    .btn-Home {
-        top: 15px;
-        right: 15px;
-        padding: 10px 22px;
-        font-size: 16px;
-    }
-
-    .btn-Home .fa-home {
-        font-size: 22px;
-    }
-}
-
